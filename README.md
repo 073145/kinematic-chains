@@ -38,11 +38,11 @@ The repository is divided into logical domains of motion:
 Function: Pure Python implementations of kinematic chains.
 Algorithms:
 
-CCD (Cyclic Coordinate Descent): Fast, heuristic iterative solving.
+- CCD (Cyclic Coordinate Descent): Fast, heuristic iterative solving.
 
-Analytical IK: Exact solutions for standard 6-DOF anthropomorphic arms (e.g., PUMA 560).
+- Analytical IK: Exact solutions for standard 6-DOF anthropomorphic arms (e.g., PUMA 560).
 
-DH-Parameters: Standard Denavit–Hartenberg matrices for describing chain topology.
+- DH-Parameters: Standard Denavit–Hartenberg matrices for describing chain topology.
 
 2. rigging-blender (The Visuals)
 
