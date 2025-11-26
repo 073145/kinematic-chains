@@ -7,28 +7,29 @@
 ## 📐 The Imprimatur (Project Scope)
 
 KINEMATIC-CHAINS is the mathematical simulation engine and procedural rigging laboratory for the 073145 ecosystem.
-
 While mecha-blocks handles the physical actuation (motors, voltage, mass), KINEMATIC-CHAINS handles the Abstract Planning of that motion.
+
+
 It provides the solvers, rigs, and geometric transformations required to translate a desired end-effector position
+$(x, y, z)$  
 
-(𝑥, 𝑦, 𝑧) (x,y,z) into specific joint angles
+into specific joint angles
+$(\theta_1, \theta_2, \dots)$
 
-(𝜃1, 𝜃2, … ) (θ1 ,θ2 ,…).
-
-
----
-
-Core Competencies
-
-Inverse Kinematics (IK): Analytical and iterative (Jacobian) solvers for multi-DOF robotic arms.
-
-Procedural Rigging: Python scripts utilizing the bpy (Blender API) to generate skeletons and weight-painting for spatial-mechanics assets automatically.
-
-Path Planning: Bézier and spline interpolation for smooth trajectory generation.
 
 ---
 
-🏗️ Modules & Architecture
+### Core Competencies
+
+- Inverse Kinematics (IK): Analytical and iterative (Jacobian) solvers for multi-DOF robotic arms.
+
+-  Procedural Rigging: Python scripts utilizing the bpy (Blender API) to generate skeletons and weight-painting for spatial-mechanics assets automatically.
+
+- Path Planning: Bézier and spline interpolation for smooth trajectory generation.
+
+---
+
+## 🏗️ Modules & Architecture
 
 The repository is divided into logical domains of motion:
 
@@ -56,18 +57,20 @@ Math: SLERP (Spherical Linear Interpolation) for quaternions to avoid gimbal loc
 
 ---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Simulation: Blender 4.0+ (bpy), PyBullet
+- Simulation: Blender 4.0+ (bpy), PyBullet
 
-Math Core: NumPy, SciPy (for optimization constraints)
+- Math Core: NumPy, SciPy (for optimization constraints)
 
-Visualization: Three.js (WebGL exports), Matplotlib
+- Visualization: Three.js (WebGL exports), Matplotlib
 
 ---
 
-📦 Usage Example
+## 📦 Usage Example
+
 Procedural Armature Generation (Blender API)
+~~~
 import bpy
 import math
 
@@ -89,8 +92,11 @@ def create_chain(length, segments):
     print(f"[*] Generated Kinematic Chain with {segments} segments.")
 
 create_chain(length=0.5, segments=6)
+~~~
 
 Inverse Kinematics Solve (NumPy)
+
+~~~
 import numpy as np
 
 def solve_forward_kinematics(joint_angles, link_lengths):
@@ -100,19 +106,20 @@ def solve_forward_kinematics(joint_angles, link_lengths):
     y = link_lengths[0] * np.sin(joint_angles[0]) + \
         link_lengths[1] * np.sin(joint_angles[0] + joint_angles[1])
     return np.array([x, y])
+~~~
 
 ---
 
-📡 Integration
+## 📡 Integration
 
 Upstream: Receives target vectors from LUMINA (e.g., "Pick up object at [10, 20, 5]").
 
 Downstream: Outputs joint-angle arrays to KRONOS-RT, which drives the servos in mecha-blocks.
 
-Side-stream: Exports GLTF models to spatial-mechanics for UI rendering.
+Side-stream: Exports GLTF models to kinematic-chains for UI rendering.
 
 ---
 
-⚖️ License
+## ⚖️ License
 
 MIT License — Geometry is universal.
