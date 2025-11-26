@@ -4,7 +4,7 @@
 
 ---
 
-## 📐 The Imprimatur (Project Scope)
+## 📐 Project Scope
 
 KINEMATIC-CHAINS is the mathematical simulation engine and procedural rigging laboratory for the 073145 ecosystem.
 While mecha-blocks handles the physical actuation (motors, voltage, mass), KINEMATIC-CHAINS handles the Abstract Planning of that motion.
@@ -110,13 +110,15 @@ def solve_forward_kinematics(joint_angles, link_lengths):
 
 ---
 
-## 📡 Integration
+## 📡 Integration & Use Cases
 
-Upstream: Receives target vectors from LUMINA (e.g., "Pick up object at [10, 20, 5]").
+Designed to function as a standalone mathematical backbone, this library integrates into agnostic robotic architectures:
 
-Downstream: Outputs joint-angle arrays to KRONOS-RT, which drives the servos in mecha-blocks.
+- Cognitive Control (Upstream): Ingests target vectors and intent states from high-level AI agents or computer vision pipelines, converting abstract goals into geometric constraints.
 
-Side-stream: Exports GLTF models to kinematic-chains for UI rendering.
+- Firmware Abstraction (Downstream): Sanitizes and outputs joint-angle arrays to real-time executives or microcontrollers, ensuring that physical actuators receive mathematically valid instructions.
+
+- Simulation & Visualization (Side-stream): Exports procedural armatures and GLTF models to UI layers, enabling "Digital Twin" capabilities for remote monitoring and safety validation.
 
 ---
 
